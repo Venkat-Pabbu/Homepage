@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
@@ -6,7 +8,7 @@ class DashboardScreen extends StatefulWidget {
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState  extends State<DashboardScreen> {
   //setting the expansion function for the navigation rail
   bool isExpanded = false;
   @override
@@ -17,42 +19,46 @@ class _DashboardScreenState extends State<DashboardScreen> {
           //Let's start by adding the Navigation Rail
           NavigationRail(
               extended: isExpanded,
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.lightGreen.shade400,
               unselectedIconTheme:
-                  const IconThemeData(color: Colors.white, opacity: 1),
+              const IconThemeData(color: Colors.black, opacity: 1),
               unselectedLabelTextStyle: const TextStyle(
                 color: Colors.black,
               ),
               selectedIconTheme:
-                  const IconThemeData(color: Colors.blueAccent),
+              IconThemeData(color: Colors.deepPurple.shade900),
               destinations: const [
                 NavigationRailDestination(
-                  icon: Icon(Icons.dashboard_customize),
-                  label: Text("Dashboard"),
+                  icon: Icon(Icons.home),
+                  label: Text("Home"),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.people_alt),
+                  label: Text("Vendors"),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.graphic_eq),
+                  label: Text("Users"),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.bar_chart),
                   label: Text("Rapports"),
                 ),
                 NavigationRailDestination(
-                  icon: Icon(Icons.shopping_cart_rounded),
-                  label: Text("Vendors"),
-                ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.people),
-                  label: Text("Users"),
+                  icon: Icon(Icons.emoji_people_rounded),
+                  label: Text("Profile"),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.event_available_outlined),
-                  label: Text("Price & Availability"),
+                  label: Text("Availability"),
                 ),
                 NavigationRailDestination(
-                  icon: Icon(Icons.mail_rounded),
+                  icon: Icon(Icons.mail),
                   label: Text("Mail"),
                 ),
                 NavigationRailDestination(
-                  icon: Icon(Icons.home),
-                  label: Text("Payment Management"),
+                  icon: Icon(Icons.home_filled),
+                  label: Text("Product Management"),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.settings),
@@ -62,7 +68,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               selectedIndex: 0),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(60.0),
+              padding: const EdgeInsets.all(20.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -83,8 +89,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         const CircleAvatar(
                           backgroundImage: NetworkImage(
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-_uP-OMmEQRo1qUr5_KcIwJKrbD2_ywFiWg&usqp=CAU%22"),
-                          radius: 26.0,
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-_uP-OMmEQRo1qUr5_KcIwJKrbD2_ywFiWg&usqp=CAU"),
+                          radius: 35.0,
+
                         ),
                       ],
                     ),
@@ -105,68 +112,126 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Row(
                                     children: const [
                                       Icon(
-                                        Icons.home,
+                                        Icons.article,
                                         size: 26.0,
-                                        color:Colors.indigo
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(
+                                        width: 15.0,
                                       ),
                                       Text(
                                         "Home",
                                         style: TextStyle(
                                           fontSize: 26.0,
-                                          color: Colors.amber,
+                                          color:Colors.blue,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )
                                     ],
+                                  ),
+                                  const SizedBox(
+                                    height: 20.0,
+                                  ),
+                                  /*const Text(
+                                    "6 Articles",
+                                    style: TextStyle(
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )*/
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        /*Flexible(
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+
+                                  Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.shopping_cart_sharp,
+                                        size: 26.0,
+                                        color: Colors.red,
+                                      ),
+                                      SizedBox(
+                                        width: 15.0,
+                                      ),
+                                      Text(
+                                        "Vendors",
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontSize: 26.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 20.0,
+                                  ),
+                                  *//*const Text(
+                                    "+32 Vendors",
+                                      style: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.bold,
+                                       ),
+                                    )*/
+                        /*],
+                              ),
+                            ),
+                          ),
+                        ),*/
+                        Flexible(
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+
+                                children: [
+                                  Row(
+                                      children: [
+                                        DropdownButton(
+                                            hint: const Text("Vendors",
+                                                style:TextStyle(
+                                                  color:Colors.red,
+                                                  fontSize: 26,
+                                                  fontWeight: FontWeight.bold,
+                                                )
+                                            ),
+                                            items: const [
+                                              DropdownMenuItem(
+                                                value: "Venue",
+                                                child: Text("Venue"),
+                                              ),
+                                              DropdownMenuItem(
+                                                  value: "Food",
+                                                  child: Text("Food & Beverages ")
+                                              ),
+                                              DropdownMenuItem(
+                                                value: "Services",
+                                                child: Text("Services"),
+                                              ),
+                                            ],
+                                            onChanged: (value) {}),
+                                        const SizedBox(
+                                          width: 20.0,
+                                        ),
+                                      ]
                                   ),
                                 ],
                               ),
                             ),
                           ),
                         ),
-                        Flexible(
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(18.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                                  children: [
-                                  Row(
-                                    children: [
-                                      DropdownButton(
-                                        hint: const Text("Vendor",
-                                          style:TextStyle(
-                                          color:Colors.red,
-                                          fontSize: 26,
-                                          fontWeight: FontWeight.bold,
-                                          )
-                                        ),
-
-                                          items: const [
-                                        DropdownMenuItem(
-                                          value: "Venue",
-                                          child: Text("Venue"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Food",
-                                          child: Text("Food & Beverages ")
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Services",
-                                          child: Text("Services"),
-                                        ),
-                                      ],
-                                        onChanged: (value) {}),
-                                    const SizedBox(
-                                    width: 20.0,
-                                    ),])
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Flexible(
+                        /*Flexible(
                           child: Card(
                             child: Padding(
                               padding: const EdgeInsets.all(18.0),
@@ -176,7 +241,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Row(
                                     children: const [
                                       Icon(
-                                        Icons.people,
+                                        Icons.people_alt,
                                         size: 26.0,
                                         color: Colors.amber,
                                       ),
@@ -193,6 +258,60 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       )
                                     ],
                                   ),
+                                  const SizedBox(
+                                    height: 20.0,
+                                  ),
+                                  *//*const Text(
+                                    "3.2M Users",
+                                    style: TextStyle(
+                                      fontSize: 36,
+                                      color: Colors.amber,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )*//*
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),*/
+                        Flexible(
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+
+                                children: [
+                                  Row(
+                                      children: [
+                                        DropdownButton(
+                                            hint: const Text("Users",
+                                                style:TextStyle(
+                                                  color:Colors.yellow,
+                                                  fontSize: 26,
+                                                  fontWeight: FontWeight.bold,
+                                                )
+                                            ),
+                                            items: const [
+                                              DropdownMenuItem(
+                                                value: "Venue",
+                                                child: Text("Venue"),
+                                              ),
+                                              DropdownMenuItem(
+                                                  value: "Food",
+                                                  child: Text("Food & Beverages ")
+                                              ),
+                                              DropdownMenuItem(
+                                                value: "Services",
+                                                child: Text("Services"),
+                                              ),
+                                            ],
+                                            onChanged: (value) {}),
+                                        const SizedBox(
+                                          width: 20.0,
+                                        ),
+                                      ]
+                                  ),
                                 ],
                               ),
                             ),
@@ -208,7 +327,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Row(
                                     children: const [
                                       Icon(
-                                        Icons.bar_chart,
+                                        Icons.graphic_eq,
                                         size: 26.0,
                                         color: Colors.green,
                                       ),
@@ -225,6 +344,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       )
                                     ],
                                   ),
+                                  const SizedBox(
+                                    height: 20.0,
+                                  ),
+                                  /*const Text(
+                                    "2.300 \$",
+                                    style: TextStyle(
+                                      fontSize: 36,
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )*/
                                 ],
                               ),
                             ),
@@ -242,9 +372,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         Column(
                           children: const [
                             Text(
-                              "210 Users",
+                              "6 New Users",
                               style: TextStyle(
-                                color: Colors.brown,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 28.0,
                               ),
@@ -252,20 +381,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             SizedBox(
                               height: 10.0,
                             ),
-                            Text(
-                              "3 new reviews",
+                            /*Text(
+                              "3 new Articles",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.w400),
-                            ),
+                            ),*/
                           ],
                         ),
                         const SizedBox(
                           width: 300.0,
                           child: TextField(
                             decoration: InputDecoration(
-                              hintText: "Search here",
+                              hintText: "Type here",
                               prefixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -280,7 +409,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     const SizedBox(
                       height: 40.0,
                     ),
-
                     //let's set the filter section
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -292,7 +420,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             color: Colors.deepPurple.shade400,
                           ),
                           label: Text(
-                            "2023, April 14, April 15, April 16",
+                            "2022, July 14, July 15, July 16",
                             style: TextStyle(
                               color: Colors.deepPurple.shade400,
                             ),
@@ -308,8 +436,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     child: Text("Date"),
                                   ),
                                   DropdownMenuItem(
-                                    value: "Venue",
-                                    child: Text("Venue"),
+                                    value: "Comments",
+                                    child: Text("Comments"),
                                   ),
                                   DropdownMenuItem(
                                     value: "Views",
@@ -350,35 +478,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         DataTable(
                             headingRowColor: MaterialStateProperty.resolveWith(
-                                (states) => Colors.grey.shade200),
+                                    (states) => Colors.grey.shade200),
                             columns: const [
                               DataColumn(label: Text("ID")),
-                              DataColumn(label: Text("Contact Number")),
                               DataColumn(label: Text("Date")),
-                              DataColumn(label: Text("Views")),
-                              DataColumn(label: Text("Comments")),
+                              DataColumn(label: Text("No.of Users")),
+                              DataColumn(label: Text("No.of orders")),
+                              DataColumn(label: Text("Cost")),
                             ],
                             rows: [
                               DataRow(cells: [
                                 const DataCell(Text("0")),
                                 const DataCell(
-                                    Text("HouseParty")),
+                                    Text("24")),
                                 DataCell(Text("${DateTime.now()}")),
-                                const DataCell(Text("2.3K Customers")),
-                                const DataCell(Text("102Reviews")),
+                                const DataCell(Text("2.3K Views")),
+                                const DataCell(Text("102Comments")),
                               ]),
                               DataRow(cells: [
                                 const DataCell(Text("1")),
                                 const DataCell(
-                                    Text("HouseParty")),
+                                    Text("25")),
                                 DataCell(Text("${DateTime.now()}")),
-                                const DataCell(Text("21.3K Customers")),
-                                const DataCell(Text("1020Reviews")),
+                                const DataCell(Text("21.3K Views")),
+                                const DataCell(Text("1020Comments")),
                               ]),
                               DataRow(cells: [
                                 const DataCell(Text("2")),
                                 const DataCell(
-                                    Text("HouseParty")),
+                                    Text("Flutter for your first project")),
                                 DataCell(Text("${DateTime.now()}")),
                                 const DataCell(Text("2.3M Views")),
                                 const DataCell(Text("10K Comments")),
@@ -421,7 +549,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ],
                         )
                       ],
-
                     )
                   ],
                 ),
