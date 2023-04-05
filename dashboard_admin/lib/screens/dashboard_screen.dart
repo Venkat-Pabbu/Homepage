@@ -33,16 +33,16 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                   label: Text("Home"),
                 ),
                 NavigationRailDestination(
-                  icon: Icon(Icons.people_alt),
+                  icon: Icon(Icons.shopping_cart_sharp),
                   label: Text("Vendors"),
                 ),
                 NavigationRailDestination(
-                  icon: Icon(Icons.graphic_eq),
+                  icon: Icon(Icons.people_alt),
                   label: Text("Users"),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.bar_chart),
-                  label: Text("Rapports"),
+                  label: Text("Reports"),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.emoji_people_rounded),
@@ -112,7 +112,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                   Row(
                                     children: const [
                                       Icon(
-                                        Icons.article,
+                                        Icons.home_filled,
                                         size: 26.0,
                                         color: Colors.blue,
                                       ),
@@ -198,33 +198,66 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                 children: [
                                   Row(
                                       children: [
-                                        DropdownButton(
+                                        const Icon(
+                                          Icons.shopping_cart_sharp,
+                                          size: 26.0,
+                                          color: Colors.red,
+                                        ),
+                                        DropdownButton<String> (
                                             hint: const Text("Vendors",
                                                 style:TextStyle(
                                                   color:Colors.red,
                                                   fontSize: 26,
                                                   fontWeight: FontWeight.bold,
-                                                )
+                                                ),
                                             ),
-                                            items: const [
-                                              DropdownMenuItem(
+                                            items:  const [],
+                                            onChanged: (Object? value) { };
+
+                                            @ override
+                                            Widget build(BuildContext context)
+                                            return Scaffold(
+                                              appBar:AppBar(
+                                                title:Text(
+                                                  "Dropdown",
+                                                ),
+                                                centerTitle:True,
+                                            ),
+                                          ),
+                                            items: [
+                                              DropdownButton<String>(
+                                                value: "Food & Beverages",
+                                                child:Center(
+                                                  child:Text("Add new vendor"),
+                                                ),
+                                              ),
+                                              /*DropdownMenuItem(
                                                 value: "Venue",
                                                 child: Text("Venue"),
-                                              ),
+                                              ),*/
                                               DropdownMenuItem(
                                                   value: "Food",
-                                                  child: Text("Food & Beverages ")
+                                                  child: Text("Food & Beverages"),
+                                                    child: DropdownMenuItem(child: Text("Add a new vendor"),
+                                                    ),
+
                                               ),
                                               DropdownMenuItem(
-                                                value: "Services",
-                                                child: Text("Services"),
+                                                /*value: "Services",
+                                                child: Text("Services"),*/
+                                                value: Text("Services"),
+                                                child: Icon(
+                                                  Icons.emoji_transportation_sharp,
+                                                  size: 26.0,
+                                                  color: Colors.red,
+                                                ),
                                               ),
                                             ],
                                             onChanged: (value) {}),
                                         const SizedBox(
                                           width: 20.0,
                                         ),
-                                      ]
+                                      ],
                                   ),
                                 ],
                               ),
@@ -284,6 +317,11 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                 children: [
                                   Row(
                                       children: [
+                                        const Icon(
+                                          Icons.people_alt,
+                                          size: 26.0,
+                                          color: Colors.yellow,
+                                        ),
                                         DropdownButton(
                                             hint: const Text("Users",
                                                 style:TextStyle(
@@ -299,7 +337,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                               ),
                                               DropdownMenuItem(
                                                   value: "Food",
-                                                  child: Text("Food & Beverages ")
+                                                  child: Text("Food & Beverages "),
                                               ),
                                               DropdownMenuItem(
                                                 value: "Services",
@@ -335,7 +373,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                         width: 15.0,
                                       ),
                                       Text(
-                                        "Rapports",
+                                        "Reports",
                                         style: TextStyle(
                                           fontSize: 26.0,
                                           color: Colors.green,
@@ -394,7 +432,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                           width: 300.0,
                           child: TextField(
                             decoration: InputDecoration(
-                              hintText: "Type here",
+                              hintText: "Search here",
                               prefixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -547,9 +585,9 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
