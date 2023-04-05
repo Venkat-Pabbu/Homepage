@@ -212,7 +212,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                                 ),
                                             ),
                                             items:  const [],
-                                            onChanged: (Object? value) { };
+                                            onChanged: (Object? value) { }
 
                                             @ override
                                             Widget build(BuildContext context)
