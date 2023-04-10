@@ -203,7 +203,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                           size: 26.0,
                                           color: Colors.red,
                                         ),
-                                        DropdownButton<String> (
+                                        DropdownButton(
                                             hint: const Text("Vendors",
                                                 style:TextStyle(
                                                   color:Colors.red,
@@ -211,41 +211,37 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                             ),
-                                            items:  const [],
-                                            onChanged: (Object? value) { }
 
-                                            @ override
-                                            Widget build(BuildContext context)
-                                            return Scaffold(
-                                              appBar:AppBar(
-                                                title:Text(
-                                                  "Dropdown",
-                                                ),
-                                                centerTitle:True,
-                                            ),
-                                          ),
-                                            items: [
-                                              DropdownButton<String>(
-                                                value: "Food & Beverages",
-                                                child:Center(
-                                                  child:Text("Add new vendor"),
-                                                ),
-                                              ),
+                                            items: const [
                                               /*DropdownMenuItem(
                                                 value: "Venue",
                                                 child: Text("Venue"),
                                               ),*/
                                               DropdownMenuItem(
-                                                  value: "Food",
-                                                  child: Text("Food & Beverages"),
-                                                    child: DropdownMenuItem(child: Text("Add a new vendor"),
-                                                    ),
-
+                                               value: "Food",
+                                                child: Text.rich(
+                                                  TextSpan(
+                                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                                    children: [
+                                                      TextSpan(text: 'Food & Beverages'),
+                                                  WidgetSpan(
+                                                      child: Icon(Icons.fastfood,color: Colors.red),
+                                                      ),
+                                                     // TextSpan(text: 'icon.fast-food'),
+                                                  //    ),
+                                                    ],
+                                                  ),
+                                                ),
+                                               /* child: Icon(
+                                                Icons.fast-food,
+                                                size:26.0,
+                                                color:Colors.red,
+                                                ),*/
                                               ),
                                               DropdownMenuItem(
-                                                /*value: "Services",
-                                                child: Text("Services"),*/
-                                                value: Text("Services"),
+                                                value: "Services",
+                                                //child: Text("Services"),
+
                                                 child: Icon(
                                                   Icons.emoji_transportation_sharp,
                                                   size: 26.0,
@@ -257,7 +253,7 @@ class _DashboardScreenState  extends State<DashboardScreen> {
                                         const SizedBox(
                                           width: 20.0,
                                         ),
-                                      ],
+                                      ]
                                   ),
                                 ],
                               ),
