@@ -1,10 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/components/socal_card.dart';
 import '../../../size_config.dart';
 import 'sign_form.dart';
 
 class Body extends StatelessWidget {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  void setState(Null Function() param0) {}
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +43,15 @@ class Body extends StatelessWidget {
                   children: [
                     SocalCard(
                       icon: "assets/icons/google-icon.svg",
-                      press: () {},
+                      press: () {
+                        _googleSignIn.signIn().then((userData) {
+                          setState(() {});
+                        }).catchError((e) {
+                          if (kDebugMode) {
+                            print(e);
+                          }
+                        });
+                      },
                     ),
                     SocalCard(
                       icon: "assets/icons/facebook-2.svg",
@@ -58,4 +72,6 @@ class Body extends StatelessWidget {
       ),
     );
   }
+
+
 }
