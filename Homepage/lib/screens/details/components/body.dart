@@ -41,8 +41,10 @@ class Body extends StatelessWidget {
                           top: getProportionateScreenWidth(15),
                         ),
                         child: DefaultButton(
-                          text: "Add To Cart",
-                          press: () {},
+                          text: "Show Menu",
+                          press: () {
+                            Navigator.pushNamed(context, "/Cart_Home");
+                          },
                         ),
                       ),
                     ),
