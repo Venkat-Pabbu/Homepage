@@ -55,7 +55,9 @@ class Body extends StatelessWidget {
                     ),
                     SocalCard(
                       icon: "assets/icons/facebook-2.svg",
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(context, "/fb");
+                      },
                     ),
                     /*SocalCard(
                       icon: "assets/icons/twitter.svg",

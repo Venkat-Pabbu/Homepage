@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">updatedhomepage</string>
+    <string name="facebook_app_id">1302100307008926</string>
+    <string name="fb_login_protocol_scheme">fb1302100307008926</string>
+    <string name="facebook_client_token">068c497ae02a97cbcc39072d443ef0d0</string>
+
+
+</resources>
