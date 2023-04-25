@@ -1,6 +1,6 @@
 List pizzaItems = [
   {
-    'image': 'assets/asset/Margherita-removebg-preview.png',
+    'image': 'assets/Cart_asset/Margherita-removebg-preview.png',
     'itemName': 'Margherita',
     'rating': '4/5',
     'weight': 200,
@@ -13,7 +13,7 @@ List pizzaItems = [
 
 
   {
-    'image': 'assets/asset/Double_Cheese_Margherita-removebg-preview.png',
+    'image': 'assets/Cart_asset/Double_Cheese_Margherita-removebg-preview.png',
     'rating': '5/5',
     'detailShow': false,
     'isBookMark': false,
@@ -24,7 +24,7 @@ List pizzaItems = [
     'prize': 500,
   },
   {
-    'image': 'assets/asset/Farmhouse-removebg-preview.png',
+    'image': 'assets/Cart_asset/Farmhouse-removebg-preview.png',
     'rating': '4/5',
     'detailShow': false,
     'isBookMark': false,
@@ -35,7 +35,7 @@ List pizzaItems = [
     'prize': 700,
   },
   {
-    'image': 'assets/asset/Peppy_Paneer-removebg-preview.png',
+    'image': 'assets/Cart_asset/Peppy_Paneer-removebg-preview.png',
     'rating': '5/5',
     'detailShow': false,
     'isBookMark': false,
@@ -46,7 +46,7 @@ List pizzaItems = [
     'prize': 450,
   },
   {
-    'image': 'assets/asset/Veg_Extravaganz.png',
+    'image': 'assets/Cart_asset/Veg_Extravaganz.png',
     'rating': '4/5',
     'detailShow': false,
     'itemName': 'Mexican Green Wave',
@@ -58,7 +58,7 @@ List pizzaItems = [
 ];
 List BiryaniItem = [
   {
-    'image': 'assets/asset/img.png',
+    'image': 'assets/Cart_asset/img.png',
     'itemName': 'Chicken Biryani',
     'rating': '4/5',
     'isBookMark': false,
@@ -69,7 +69,7 @@ List BiryaniItem = [
     'prize': 225,
   },
   {
-    'image': 'assets/asset/img_1.png',
+    'image': 'assets/Cart_asset/img_1.png',
     'itemName': 'Mutton Biryani',
     'rating': '5/5',
     'weight': 500,
@@ -82,7 +82,7 @@ List BiryaniItem = [
 ];
 List dessertsItem = [
   {
-    'image': 'assets/asset/choco-lava-cake.png',
+    'image': 'assets/Cart_asset/choco-lava-cake.png',
     'itemName': 'choco lava cake',
     'rating': '4/5',
     'isBookMark': false,
@@ -92,7 +92,7 @@ List dessertsItem = [
     'prize': 100,
   },
   {
-    'image': 'assets/asset/170046_BMC.png',
+    'image': 'assets/Cart_asset/170046_BMC.png',
     'itemName': 'Butterscotch Mousse Cake',
     'rating': '5/5',
     'isBookMark': false,
@@ -105,7 +105,7 @@ List dessertsItem = [
 ];
 List pastaItem = [
   {
-    'image': 'assets/asset/penneallavodka.png',
+    'image': 'assets/Cart_asset/penneallavodka.png',
     'isBookMark': false,
     'itemName': 'Italian Pasta',
     'rating': '4/5',
@@ -118,7 +118,7 @@ List pastaItem = [
 ];
 List beveragesItem = [
   {
-    'image': 'assets/asset/beverages.png',
+    'image': 'assets/Cart_asset/beverages.png',
     'isBookMark': false,
     'itemName': 'Drinks',
     'rating': '4/5',
