@@ -1,11 +1,12 @@
 
 import 'package:flutter/material.dart';
-
 import '../Cart_models/itemsModel.dart';
 
 class CartProvider extends ChangeNotifier {
+
   List<ItemsModel> cartList = [];
   int totalPrize = 0;
+
 
   get totalProduct => cartList.length;
 

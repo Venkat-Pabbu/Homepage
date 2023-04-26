@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/Cart_views/cartPage.dart';
 import 'package:shop_app/Cart_views/detailsPage.dart';
@@ -13,7 +12,6 @@ import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/screens/splash/splash_screen.dart';
-
 import 'Cart_views/HomePage.dart';
 import 'Cart_views/itemDetailsPage.dart';
 import 'fb.dart';
@@ -38,6 +36,6 @@ final Map<String, WidgetBuilder> routes = {
   ItemDetailsPage.routeName: (context)=> ItemDetailsPage(),
   cartPage.routeName: (context) => cartPage(),
   DetailsPage.routeName: (context) => DetailsPage(),
-
+  cartPage.routeName: (context) => cartPage(),
 
 };

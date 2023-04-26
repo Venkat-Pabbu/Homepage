@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                       // const Spacer(),
                       IconButton(
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/Cart_cartPage');
+                          Navigator.of(context).pushNamed("/Cart_cartpage");
                         },
                         icon: const Icon(
                           Icons.shopping_cart,
