@@ -52,7 +52,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "continue",
+            text: "Continue",
             press: () {
               if (_formKey.currentState!.validate()) {
                 Navigator.pushNamed(context, OtpScreen.routeName);
@@ -82,7 +82,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       },
       decoration: InputDecoration(
         labelText: "Address",
-        hintText: "Enter your phone address",
+        hintText: "Enter your address",
         // If  you are using latest version of flutter then label text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -110,8 +110,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Phone Number",
-        hintText: "Enter your phone number",
+        labelText: "Mobile Number",
+        hintText: "Enter your Mobile number",
         // If  you are using latest version of flutter then label text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
