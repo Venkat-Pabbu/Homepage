@@ -1,0 +1,197 @@
+import 'dart:html';
+
+import 'package:flutter/material.dart';
+import 'package:shop_app/components/custom_surfix_icon.dart';
+import 'package:shop_app/components/default_button.dart';
+import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../../constants.dart';
+import '../../../size_config.dart';
+
+
+class SignUpForm extends StatefulWidget {
+  @override
+  _SignUpFormState createState() => _SignUpFormState();
+}
+
+class _SignUpFormState extends State<SignUpForm> {
+  final _formKey = GlobalKey<FormState>();
+  late String  Email, Password, Conform_Password;
+
+  getConform_Password(pass){
+    Conform_Password = pass;
+  }
+
+  getEmail(email) {
+    Email = email;
+  }
+
+  getPassword(password) {
+    Password = password;
+  }
+  createData() {
+    print("Account Created");
+    DocumentReference documentReference = FirebaseFirestore.instance.collection('SignUp_Data').doc(Email);
+    //create map
+    Map<String, dynamic> students = {
+      "Conform_Password":Conform_Password,
+      "Email": Email,
+      "Password": Password,
+    };
+
+    documentReference
+        .set(students)
+        .whenComplete(() => {print("$Email Created")});
+  }
+  String? email;
+  String? password;
+  String? conform_password;
+  bool remember = false;
+
+  final List<String?> errors = [];
+
+  void addError({String? error}) {
+    if (!errors.contains(error))
+      setState(() {
+        errors.add(error);
+      });
+  }
+
+  void removeError({String? error}) {
+    if (errors.contains(error))
+      setState(() {
+        errors.remove(error);
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          buildEmailFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildPasswordFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildConformPassFormField(),
+          FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(40)),
+          DefaultButton(
+            text: "Create Account",
+            press: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                // if all are valid then go to success screen
+                createData();
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextFormField buildConformPassFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => conform_password = newValue,
+      onChanged: (String pass){
+        getConform_Password(pass);
+        if (pass.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (pass.isNotEmpty && password == conform_password) {
+          removeError(error: kMatchPassError);
+        }
+        Conform_Password = pass;
+      },
+      validator: (pass) {
+        if (pass!.isEmpty) {
+          addError(error: kPassNullError);
+          return "";
+        } else if ((password != pass)) {
+          addError(error: kMatchPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Confirm Password",
+        hintText: "Re-enter your password",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildPasswordFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => password = newValue,
+      onChanged: (password) {
+        getPassword(password);
+        if (password.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (password.length >= 8) {
+          removeError(error: kShortPassError);
+        }
+        Password = password;
+      },
+      validator: (password) {
+        if (password!.isEmpty) {
+          addError(error: kPassNullError);
+          return "";
+        } else if (password.length < 8) {
+          addError(error: kShortPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Password",
+        hintText: "Enter your password",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildEmailFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => email = newValue,
+      onChanged: (email) {
+        getEmail(email);
+        if (email.isNotEmpty) {
+          removeError(error: kEmailNullError);
+        } else if (emailValidatorRegExp.hasMatch(email)) {
+          removeError(error: kInvalidEmailError);
+        }
+        Email = email;
+      },
+      validator: (email) {
+        if (email!.isEmpty) {
+          addError(error: kEmailNullError);
+          return "";
+        } else if (!emailValidatorRegExp.hasMatch(email)) {
+          addError(error: kInvalidEmailError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Email",
+        hintText: "Enter your email",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+      ),
+    );
+  }
+}
